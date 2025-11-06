@@ -1,13 +1,219 @@
 <screen>
 	<styles>
-		<style name="style_main" bg_color="0x00688a" />
+		<!-- Color Definitions -->
+		<style name="style_bg_main" bg_color="0x1a2332" />
+		<style name="style_card_bg" bg_color="0x2a3544" radius="15" border_width="0" />
+		<style name="style_text_primary" text_color="0xffffff" />
+		<style name="style_text_secondary" text_color="0x8a9aaa" />
+		<style name="style_accent" bg_color="0x00d4ff" />
+		<style name="style_button" bg_color="0x3a4554" radius="25" border_width="0" />
+		<style name="style_control_bar" bg_color="0x1f2a38" radius="40" border_width="1" border_color="0x2a3a48" />
+		<style name="style_nav_bar" bg_color="0x0f1a28" border_width="0" />
 	</styles>
 
 	<view>
-		<style name="style_main" />
+		<style name="style_bg_main" />
 
-		<lv_button align="center" style_bg_color="0x111">
-			<lv_label text="Hello world" style_text_font="font_medium" />
+		<!-- Top Status Bar -->
+		<lv_obj x="0" y="0" width="1024" height="60" style_bg_color="0x1a2332" style_border_width="0" style_pad_all="15">
+			<!-- Time -->
+			<lv_label x="0" y="0" text="08:08" align="left_mid" style_text_color="0xffffff" />
+			
+			<!-- Center Icons -->
+			<lv_label x="422" y="0" text="Mail" align="center" style_text_color="0x8a9aaa" />
+			<lv_label x="472" y="0" text="User" align="center" style_text_color="0x8a9aaa" />
+			<lv_label x="532" y="0" text="Cfg" align="center" style_text_color="0x8a9aaa" />
+			
+			<!-- Right Status Icons -->
+			<lv_label x="890" y="0" text="WiFi" align="right_mid" style_text_color="0xffffff" />
+			<lv_label x="930" y="0" text="Bat" align="right_mid" style_text_color="0xffffff" />
+		</lv_obj>
+
+		<!-- Cards Container -->
+		<lv_obj x="20" y="80" width="984" height="280" style_bg_color="0x1a2332" style_border_width="0" style_pad_all="0">
+			
+			<!-- Map Card -->
+			<lv_obj x="0" y="0" width="300" height="260">
+				<style name="style_card_bg" />
+				
+				<!-- Card Title -->
+				<lv_label x="15" y="15" text="Map" style_text_color="0xffffff" />
+				
+				<!-- Map Preview Area -->
+				<lv_obj x="15" y="50" width="270" height="150" style_bg_color="0x3a4554" style_radius="10" style_border_width="0">
+					<!-- Route Line Placeholder -->
+					<lv_label x="100" y="60" text="Route" style_text_color="0x00d4ff" />
+				</lv_obj>
+				
+				<!-- Destination -->
+				<lv_label x="15" y="210" text="No.1 San Road" style_text_color="0xffffff" />
+				
+				<!-- GO Button -->
+				<lv_button x="215" y="205" width="70" height="35" style_bg_color="0x00d4ff" style_radius="8">
+					<lv_label text="GO" style_text_color="0x000000" align="center" />
+				</lv_button>
+				
+				<!-- Search Icon -->
+				<lv_label x="15" y="235" text="Search" style_text_color="0x8a9aaa" />
+			</lv_obj>
+
+			<!-- Weather Card -->
+			<lv_obj x="342" y="0" width="300" height="260">
+				<style name="style_card_bg" />
+				
+				<!-- Card Title -->
+				<lv_label x="15" y="15" text="Weather" style_text_color="0xffffff" />
+				
+				<!-- Temperature -->
+				<lv_label x="15" y="60" text="25°" style_text_color="0xffffff" />
+				
+				<!-- Condition -->
+				<lv_label x="15" y="115" text="Cloudy" style_text_color="0x8a9aaa" />
+				<lv_label x="15" y="135" text="16°C ~ 26°C" style_text_color="0x8a9aaa" />
+				
+				<!-- Weather Icon Placeholder -->
+				<lv_obj x="195" y="55" width="90" height="70" style_bg_color="0xffffff" style_bg_opa="30" style_radius="35" style_border_width="0" />
+				
+				<!-- 3-Day Forecast -->
+				<lv_label x="15" y="170" text="Sunday" style_text_color="0x8a9aaa" />
+				<lv_label x="15" y="190" text="19°C/24°C" style_text_color="0x8a9aaa" />
+				
+				<lv_label x="105" y="170" text="Monday" style_text_color="0x8a9aaa" />
+				<lv_label x="105" y="190" text="14°C/21°C" style_text_color="0x8a9aaa" />
+				
+				<lv_label x="195" y="170" text="Tuesday" style_text_color="0x8a9aaa" />
+				<lv_label x="195" y="190" text="14°C/21°C" style_text_color="0x8a9aaa" />
+				
+				<!-- Location & Date -->
+				<lv_label x="15" y="225" text="Beijing  2/12 18:54" style_text_color="0x8a9aaa" />
+			</lv_obj>
+
+			<!-- Music Card -->
+			<lv_obj x="684" y="0" width="300" height="260">
+				<style name="style_card_bg" />
+				
+				<!-- Card Title -->
+				<lv_label x="15" y="15" text="Music" style_text_color="0xffffff" />
+				
+				<!-- Album Art -->
+				<lv_obj x="15" y="50" width="270" height="130" style_bg_color="0x2a4555" style_radius="10" style_border_width="0">
+					<lv_label x="80" y="55" text="EuroDancer" style_text_color="0xffffff" />
+				</lv_obj>
+				
+				<!-- Song Info -->
+				<lv_label x="15" y="190" text="EuroDancer - Muse" style_text_color="0xffffff" />
+				
+				<!-- Progress Bar -->
+				<lv_bar x="15" y="215" width="270" height="4" value="60" style_bg_color="0x3a4554" />
+				
+				<!-- Playback Controls -->
+				<lv_button x="55" y="225" width="45" height="45" style_bg_color="0x3a4554" style_radius="22">
+					<lv_label text="Prev" style_text_color="0xffffff" align="center" />
+				</lv_button>
+				
+				<lv_button x="127" y="225" width="45" height="45" style_bg_color="0x3a4554" style_radius="22">
+					<lv_label text="II" style_text_color="0xffffff" align="center" />
+				</lv_button>
+				
+				<lv_button x="199" y="225" width="45" height="45" style_bg_color="0x3a4554" style_radius="22">
+					<lv_label text="Next" style_text_color="0xffffff" align="center" />
+				</lv_button>
+			</lv_obj>
+
+		</lv_obj>
+
+		<!-- Bottom Control Bar -->
+		<lv_obj x="100" y="380" width="824" height="80">
+			<style name="style_control_bar" />
+			
+			<!-- Control Buttons -->
+			<lv_button x="30" y="15" width="50" height="50">
+				<style name="style_button" />
+				<lv_label text="GPS" style_text_color="0xffffff" align="center" />
+			</lv_button>
+			
+			<lv_button x="110" y="15" width="50" height="50">
+				<style name="style_button" />
+				<lv_label text="WiFi" style_text_color="0xffffff" align="center" />
+			</lv_button>
+			
+			<lv_button x="190" y="15" width="50" height="50">
+				<style name="style_button" />
+				<lv_label text="A/C" style_text_color="0xffffff" align="center" />
+			</lv_button>
+			
+			<lv_button x="280" y="15" width="50" height="50">
+				<style name="style_button" />
+				<lv_label text="25°" style_text_color="0xffffff" align="center" />
+			</lv_button>
+			
+			<!-- Center Button (Active/Highlighted) -->
+			<lv_button x="400" y="15" width="50" height="50" style_bg_color="0x00d4ff" style_radius="25">
+				<lv_label text="!" style_text_color="0x000000" align="center" />
+			</lv_button>
+			
+			<lv_button x="480" y="15" width="50" height="50">
+				<style name="style_button" />
+				<lv_label text="Chrg" style_text_color="0xffffff" align="center" />
+			</lv_button>
+			
+			<lv_button x="570" y="15" width="50" height="50">
+				<style name="style_button" />
+				<lv_label text="17°" style_text_color="0xffffff" align="center" />
+			</lv_button>
+			
+			<lv_button x="650" y="15" width="50" height="50">
+				<style name="style_button" />
+				<lv_label text="Bell" style_text_color="0xffffff" align="center" />
+			</lv_button>
+			
+			<lv_button x="730" y="15" width="50" height="50">
+				<style name="style_button" />
+				<lv_label text="Cfg" style_text_color="0xffffff" align="center" />
+			</lv_button>
+			
+			<!-- Progress Slider Indicator -->
+			<lv_bar x="350" y="70" width="100" height="4" value="50" style_bg_color="0x2a3a48" />
+		</lv_obj>
+
+		<!-- Left Control Button (Seat) -->
+		<lv_button x="20" y="390" width="70" height="70" style_bg_color="0x2a3544" style_radius="35">
+			<lv_label text="Seat Up" style_text_color="0xffffff" style_text_align="center" align="center" />
 		</lv_button>
+
+		<!-- Right Control Button (Volume) -->
+		<lv_button x="934" y="390" width="70" height="70" style_bg_color="0x2a3544" style_radius="35">
+			<lv_label text="Volume" style_text_color="0xffffff" style_text_align="center" align="center" />
+		</lv_button>
+
+		<!-- Bottom Navigation Bar -->
+		<lv_obj x="0" y="530" width="1024" height="70">
+			<style name="style_nav_bar" />
+			
+			<lv_button x="80" y="10" width="60" height="50" style_bg_opa="0" style_border_width="0" style_shadow_width="0">
+				<lv_label text="Back" style_text_color="0x8a9aaa" align="center" />
+			</lv_button>
+			
+			<lv_button x="240" y="10" width="60" height="50" style_bg_opa="0" style_border_width="0" style_shadow_width="0">
+				<lv_label text="Home" style_text_color="0x8a9aaa" align="center" />
+			</lv_button>
+			
+			<lv_button x="400" y="10" width="60" height="50" style_bg_opa="0" style_border_width="0" style_shadow_width="0">
+				<lv_label text="Menu" style_text_color="0x8a9aaa" align="center" />
+			</lv_button>
+			
+			<lv_button x="520" y="10" width="60" height="50" style_bg_opa="0" style_border_width="0" style_shadow_width="0">
+				<lv_label text="Media" style_text_color="0x8a9aaa" align="center" />
+			</lv_button>
+			
+			<lv_button x="640" y="10" width="60" height="50" style_bg_opa="0" style_border_width="0" style_shadow_width="0">
+				<lv_label text="Video" style_text_color="0x8a9aaa" align="center" />
+			</lv_button>
+			
+			<lv_button x="800" y="10" width="60" height="50" style_bg_opa="0" style_border_width="0" style_shadow_width="0">
+				<lv_label text="Power" style_text_color="0x8a9aaa" align="center" />
+			</lv_button>
+		</lv_obj>
+
 	</view>
 </screen>
